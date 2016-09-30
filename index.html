@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="./lib/jquery-1.12.0.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        window.$ = window.jQuery = require('./lib/jquery-1.12.0.min.js')
+    </script>
+    <script src="./lib/auto-line-number.js" charset="utf-8"></script>
+    <script src="./lib/marked.js" charset="utf-8"></script>
+</head>
+<style type="text/css">
+    html,
+    body {
+        overflow-x: hidden;
+        height: 100%;
+    }
+
+    img {
+        max-width: 100%;
+        vertical-align: middle;
+    }
+
+    #editor {
+        height: 100%;
+        width: 50%;
+        padding-top: 20px;
+        resize: none;
+        border-style: none;
+        font-size: 15px;
+        font-family: "Microsoft YaHei", "Tahoma,Verdana", "STHeiTi", "simsun", "sans-serif";
+        float: left;
+    }
+
+    #view {
+        height: 100%;
+        width: 50%;
+        padding-top: 20px;
+        resize: none;
+        border-style: none;
+        font-size: 15px;
+        font-family: "Microsoft YaHei", "Tahoma,Verdana", "STHeiTi", "simsun", "sans-serif";
+        /*background-color: blue;*/
+        overflow: auto;
+    }
+</style>
+
+<body>
+    <textarea class="form-control" id="editor"></textarea>
+    <div class="form-control" id="view"></div>
+</body>
+<script src="./src/render/render.js" charset="utf-8"></script>
+
+</html>
