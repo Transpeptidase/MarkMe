@@ -5,6 +5,7 @@ const shell = electron.shell
 
 const addMenu = require('./src/main/menu')
 const addIpc = require('./src/main/ipc')
+const backup = require('./src/main/backup').backup
 
 let mainWin
 
@@ -12,6 +13,7 @@ app.on('ready', () => {
   createWindow()
   addMenu(mainWin)
   addIpc(mainWin)
+  backup(mainWin)
   mainWin.setTitle('New File')
 })
 
@@ -20,7 +22,11 @@ app.on('window-all-closed', () => {
 })
 
 function createWindow (filepath) {
-  mainWin = new BrowserWindow({show: false})
+  mainWin = new BrowserWindow({
+    show: false,
+    icon: './images/logo.png'
+  })
+
   mainWin.loadURL(`file://${__dirname}/index.html`)
 
   mainWin.once('ready-to-show', () => {

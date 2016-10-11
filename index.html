@@ -4,12 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/highlight/styles/solarized-light.css">
+    <script src="./lib/highlight/highlight.pack.js" charset="utf-8"></script>
     <script src="./lib/jquery-1.12.0.min.js" charset="utf-8"></script>
     <script type="text/javascript">
-        window.$ = window.jQuery = require('./lib/jquery-1.12.0.min.js')
+        window.$ = window.jQuery = require('./lib/jquery-1.12.0.min.js');
     </script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <script src="./lib/auto-line-number.js" charset="utf-8"></script>
     <script src="./lib/marked.js" charset="utf-8"></script>
+    <script src="./src/parse/md2html.js" charset="utf-8"></script>
 </head>
 <style type="text/css">
     html,
@@ -25,7 +29,7 @@
 
     #editor {
         height: 100%;
-        width: 50%;
+        width: 40%;
         padding-top: 20px;
         resize: none;
         border-style: none;
@@ -36,20 +40,34 @@
 
     #view {
         height: 100%;
-        width: 50%;
+        width: 30%;
         padding-top: 20px;
         resize: none;
         border-style: none;
         font-size: 15px;
         font-family: "Microsoft YaHei", "Tahoma,Verdana", "STHeiTi", "simsun", "sans-serif";
         /*background-color: blue;*/
-        overflow: auto;
+        float: left;
+        /*overflow: auto;*/
+    }
+
+    #test {
+      height: 100%;
+      width: 30%;
+      padding-top: 20px;
+      resize: none;
+      border-style: none;
+      font-size: 15px;
+      font-family: "Microsoft YaHei", "Tahoma,Verdana", "STHeiTi", "simsun", "sans-serif";
+      /*background-color: blue;*/
+      overflow: auto;
     }
 </style>
 
 <body>
     <textarea class="form-control" id="editor"></textarea>
     <div class="form-control" id="view"></div>
+    <div class="form-control" id="test"></div>
 </body>
 <script src="./src/render/render.js" charset="utf-8"></script>
 
