@@ -2,6 +2,7 @@
 logs
 *.log
 dist/*
+lib/bootstrap.min.css
 npm-debug.log*
 
 # Runtime data

@@ -8,7 +8,7 @@ const globalInfo = require('./globalInfo')
 const Markdown = [
   {
     name: 'Markdown',
-    extensions: ['md', 'Markdown']
+    extensions: ['md', 'markdown', 'Markdown']
   }
 ]
 

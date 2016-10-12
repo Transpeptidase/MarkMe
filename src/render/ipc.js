@@ -5,8 +5,9 @@ const ipc = require('electron').ipcRenderer
 
 ipc.on('open_contents', (event, contents) => {
   document.getElementById('editor').value = contents
-  ipc.send('confirm-contents', document.getElementById('editor').value)
-  document.getElementById('view').innerHTML = md2html(contents)
+  var val = document.getElementById('editor').value
+  ipc.send('confirm-contents', val)
+  document.getElementById('view').innerHTML = md2html(val)
   renderMathInElement(document.body)
   $(document).ready(() => {
     $('pre code').each((i, e) => { hljs.highlightBlock(e) })
