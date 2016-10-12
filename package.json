@@ -5,14 +5,20 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
-	"pack-linux-ia32": "electron-packager . --asar --overwrite --platform=linux --arch=ia32 --icon=assets/app-icon/app.ico --prune=true --out=build",
-    "pack-linux-x64": "electron-packager . --asar --overwrite --platform=linux --arch=x64 --icon=assets/app-icon/app.ico --prune=true --out=build",
-    "pack-win32-ia32": "electron-packager . --asar  --overwrite --platform=win32 --arch=ia32 --icon=assets/app-icon/app.ico --prune=true --out=build --version-string.ProductName='MarkMe'",
-    "pack-win32-x64": "electron-packager . --asar  --overwrite --platform=win32 --arch=x64 --icon=assets/app-icon/app.ico --prune=true --out=build --version-string.ProductName='MarkMe'",
-    "pack-mac": "electron-packager . --asar --overwrite --platform=darwin --arch=x64 --icon=assets/app-icon/app.ico --prune=true --out=build",
-    "package": "npm run pack-linux-ia32 && npm run pack-linux-x64 && npm run pack-win32-ia32 && npm run pack-win32-x64 && npm run pack-mac"
+    "start": "electron .", 
+    "pack": "build"
   },
+  "build": {
+    "appId": "Mark.Me",
+    "productName": "MarkMe",
+    "mac": {
+      "category": "MarkMe"
+    },
+    "win": {
+      "iconUrl": "(windows-only) https link to icon",
+      "target": "nsis"
+    }
+},
   "author": "",
   "license": "ISC",
   "devDependencies": {

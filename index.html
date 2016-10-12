@@ -3,72 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/bootstrap.min.css">
     <link rel="stylesheet" href="./lib/highlight/styles/solarized-light.css">
+    <link rel="stylesheet" href="./lib/katex/katex.min.css" media="screen" title="no title">
+    <link rel="stylesheet" href="./src/css/basic.css" media="screen" title="no title">
     <script src="./lib/highlight/highlight.pack.js" charset="utf-8"></script>
     <script src="./lib/jquery-1.12.0.min.js" charset="utf-8"></script>
     <script type="text/javascript">
         window.$ = window.jQuery = require('./lib/jquery-1.12.0.min.js');
     </script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="./lib/auto-line-number.js" charset="utf-8"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <script src="./lib/katex/katex.min.js" charset="utf-8"></script>
+    <script src="./lib/katex/contrib/auto-render.min.js" charset="utf-8"></script>
     <script src="./lib/marked.js" charset="utf-8"></script>
     <script src="./src/parse/md2html.js" charset="utf-8"></script>
 </head>
-<style type="text/css">
-    html,
-    body {
-        overflow-x: hidden;
-        height: 100%;
-    }
-
-    img {
-        max-width: 100%;
-        vertical-align: middle;
-    }
-
-    #editor {
-        height: 100%;
-        width: 40%;
-        padding-top: 20px;
-        resize: none;
-        border-style: none;
-        font-size: 15px;
-        font-family: "Microsoft YaHei", "Tahoma,Verdana", "STHeiTi", "simsun", "sans-serif";
-        float: left;
-    }
-
-    #view {
-        height: 100%;
-        width: 30%;
-        padding-top: 20px;
-        resize: none;
-        border-style: none;
-        font-size: 15px;
-        font-family: "Microsoft YaHei", "Tahoma,Verdana", "STHeiTi", "simsun", "sans-serif";
-        /*background-color: blue;*/
-        float: left;
-        /*overflow: auto;*/
-    }
-
-    #test {
-      height: 100%;
-      width: 30%;
-      padding-top: 20px;
-      resize: none;
-      border-style: none;
-      font-size: 15px;
-      font-family: "Microsoft YaHei", "Tahoma,Verdana", "STHeiTi", "simsun", "sans-serif";
-      /*background-color: blue;*/
-      overflow: auto;
-    }
-</style>
-
 <body>
     <textarea class="form-control" id="editor"></textarea>
     <div class="form-control" id="view"></div>
-    <div class="form-control" id="test"></div>
 </body>
 <script src="./src/render/render.js" charset="utf-8"></script>
+<script src="./src/render/ipc.js" charset="utf-8"></script>
 
 </html>
