@@ -2,10 +2,13 @@ const electron = require('electron')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const shell = electron.shell
+// const fontManager = require('font-manager')
 
 const addMenu = require('./src/main/menu')
 const addIpc = require('./src/main/ipc')
 const backup = require('./src/main/backup').backup
+// const globalInfo = require('./src/main/globalInfo')
+// const fontManager = require('font-manager')
 
 let mainWin
 
@@ -15,6 +18,17 @@ app.on('ready', () => {
   addIpc(mainWin)
   backup(mainWin)
   mainWin.setTitle('New File')
+  // fontManager.getAvailableFontsSync()
+  // fontManager.getAvailableFonts(function (fonts) {
+  //   // fonts = fonts.family.sort()
+  //   // var re = [fonts[0]]
+  //   // for (var i = 1; i < fonts.length; i++) {
+  //   //   if (fonts[i] !== re[re.length - 1]) {
+  //   //     re.push(fonts[i])
+  //   //   }
+  //   // }
+  //   // globalInfo.fonts = re
+  // })
 })
 
 app.on('window-all-closed', () => {

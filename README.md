@@ -9,6 +9,7 @@
 - Support code highlight by [highlightjs](https://highlightjs.org/)
 - Support TeX math rendering by [KaTex](https://github.com/Khan/KaTeX)
 - Support backup current file
+- Support global search
 
 ![demo](./images/demo.png)
 

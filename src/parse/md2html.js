@@ -232,12 +232,10 @@
   }
 
   window.md2html = (s) => {
-    var k = 0
     const len = parseList.length
     var htmls = []
     s += '\n'
     while (s !== '') {
-      ++k
       for (var i = 0; i < len; ++i) {
         var pRes = parseList[i](s)
         if (pRes.succ) {
@@ -249,9 +247,7 @@
           break
         }
       }
-      if (k > 500) break
     }
-    console.log(s)
     return join(htmls)
   }
 })()

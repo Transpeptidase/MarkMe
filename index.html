@@ -2,27 +2,50 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./lib/bootstrap.min.css">
-    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" media="screen" title="no title">
-    <link rel="stylesheet" href="./lib/highlight/styles/solarized-light.css">
-    <link rel="stylesheet" href="./lib/katex/katex.min.css" media="screen" title="no title">
-    <link rel="stylesheet" href="./src/css/basic.css" media="screen" title="no title">
-    <script src="./lib/highlight/highlight.pack.js" charset="utf-8"></script>
-    <script src="./lib/jquery-1.12.0.min.js" charset="utf-8"></script>
-    <script type="text/javascript">
-        window.$ = window.jQuery = require('./lib/jquery-1.12.0.min.js');
-    </script>
-    <script>
-        hljs.initHighlightingOnLoad();
-    </script>
-    <script src="./lib/katex/katex.min.js" charset="utf-8"></script>
-    <script src="./lib/katex/contrib/auto-render.min.js" charset="utf-8"></script>
-    <script src="./src/parse/md2html.js" charset="utf-8"></script>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./lib/bootstrap.min.css">
+  <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" media="screen" title="no title">
+  <link rel="stylesheet" href="./lib/highlight/styles/solarized-light.css">
+  <link rel="stylesheet" href="./lib/katex/katex.min.css" media="screen" title="no title">
+  <link rel="stylesheet" href="./lib/fancybox/jquery.fancybox.css" media="screen" title="no title">
+  <link rel="stylesheet" href="./src/css/basic.css" media="screen" title="no title">
+  <script src="./lib/highlight/highlight.pack.js" charset="utf-8"></script>
+  <script src="./lib/jquery-1.12.0.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    window.$ = window.jQuery = require('./lib/jquery-1.12.0.min.js');
+  </script>
+  <script src="./lib/fancybox/jquery.fancybox.pack.js" charset="utf-8"></script>
+  <script src="./lib/katex/katex.min.js" charset="utf-8"></script>
+  <script src="./lib/katex/contrib/auto-render.min.js" charset="utf-8"></script>
+  <script src="./src/parse/md2html.js" charset="utf-8"></script>
 </head>
+
 <body>
-    <textarea class="form-control" id="editor"></textarea>
-    <div class="form-control" id="view"></div>
+  <textarea class="form-control" id="editor"></textarea>
+  <div class="form-control" id="view"></div>
+
+  <a href="#find-box" class="fancybox" id="find"></a>
+  <div id="find-box" style="display:none">
+    <form id="find-from" class="form-horizontal" action="www.hao123.com" style="text-align:center" onsubmit="return find();">
+      <div style="text-align:center; padding:15px">
+        <input type="text" class="form-control" style="width:60%; display:inline-block;" id="find-content" placeholder="Find in current buffer">
+      </div>
+      <div style="display:inline-block; text-align:left; margin-bottom:20px">
+        <div class="checkbox">
+          <label class="control-label"><input type="checkbox" id="case">Case Insensitive</label>
+        </div>
+        <div class="radio">
+          <label class="control-label"><input type="radio" name="mode" id="normal" checked>Normal</label>
+        </div>
+        <div class="radio">
+          <label class="control-label"><input type="radio" name="mode" id="re">Regular expression</label>
+        </div>
+      </div>
+      <div>
+        <input type="submit" class="btn btn-default" value="Next" id="find-btn">
+      </div>
+    </form>
+  </div>
 </body>
 <script src="./src/render/render.js" charset="utf-8"></script>
 <script src="./src/render/ipc.js" charset="utf-8"></script>

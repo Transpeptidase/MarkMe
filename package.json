@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .", 
+    "start": "electron .",
     "pack": "build"
   },
   "build": {
@@ -18,16 +18,17 @@
       "iconUrl": "(windows-only) https link to icon",
       "target": "nsis"
     }
-},
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron-prebuilt": "^1.2.0",
-    "electron-packager": "8.0.0",
+    "electron": "^1.4.3",
+    "electron-builder": "^7.12.2",
     "eslint": "^3.6.0",
     "eslint-config-google": "^0.6.0",
     "eslint-config-standard": "^6.0.1",
     "eslint-plugin-promise": "^2.0.1",
-    "eslint-plugin-standard": "^2.0.0"
+    "eslint-plugin-standard": "^2.0.0",
+    "font-manager": "^0.2.2"
   }
 }

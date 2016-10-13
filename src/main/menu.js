@@ -1,4 +1,5 @@
 const Menu = require('electron').Menu
+const globalInfo = require('./globalInfo')
 
 function addMenu (mainWin) {
   var template = [
@@ -78,9 +79,41 @@ function addMenu (mainWin) {
       }, {
         role: 'togglefullscreen'
       }]
+    },
+
+    // for settings
+    {
+      label: 'Setting',
+      submenu: [
+        {
+          label: 'Font',
+          submenu: globalInfo.fonts.map(genFont)
+        }
+      ]
+    },
+
+    // for search
+    {
+      label: 'Search',
+      submenu: [
+        {
+          label: 'Find',
+          accelerator: 'CmdOrCtrl+F',
+          click: () => { mainWin.webContents.send('request-find') }
+        }
+      ]
     }
 
   ]
+
+  function genFont (s) {
+    return {
+      label: s,
+      click: () => {
+        mainWin.webContents.send('request-change-font', s)
+      }
+    }
+  }
 
   const menu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(menu)
