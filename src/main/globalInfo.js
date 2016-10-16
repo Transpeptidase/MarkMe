@@ -1,7 +1,11 @@
 const globalInfo = {
   filename: '',
   fileContent: '',
-  fonts: []
+  fonts: [],
+  font: '',
+  preFont: '',
+  fontSize: '',
+  preFontSize: ''
 }
 
 module.exports = globalInfo

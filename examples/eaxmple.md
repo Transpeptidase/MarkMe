@@ -2,7 +2,7 @@
 ## This is an h2 tag
 ###### This is an h6 tag
 
-*This text will be italic*  
+*This will be italic*  
 _This will also be italic_  
 
 **This text will be bold**  

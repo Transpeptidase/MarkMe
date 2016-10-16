@@ -3,6 +3,8 @@ const dialog = require('./dialog')
 const globalInfo = require('./globalInfo')
 const file = require('./file')
 const closeBackUp = require('./backup').closeBackUp
+const addMenu = require('./menu')
+const setting = require('./settings')
 
 module.exports = function (win) {
   ipc.on('response-open', (event, buffer) => {
@@ -80,5 +82,16 @@ module.exports = function (win) {
     if (globalInfo.filename !== '' && globalInfo.fileContent !== buffer) {
       file.writeToFile(file.getBackUpFile(globalInfo.filename), buffer)
     }
+  })
+
+  ipc.once('font', (event, buffer) => {
+    globalInfo.fonts = buffer.split(',')
+    addMenu(win)
+  })
+
+  ipc.once('init-ok', (event, _) => {
+    setting.readSetting()
+    win.webContents.send('init-setting',
+    [globalInfo.font, globalInfo.preFont, globalInfo.fontSize, globalInfo.preFontSize].toString())
   })
 }

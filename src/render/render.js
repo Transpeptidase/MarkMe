@@ -22,3 +22,7 @@ $('#editor').on('change input paste keyup', () => {
     $('pre code').each((i, e) => { hljs.highlightBlock(e) })
   })
 })
+
+$('#editor').scroll(() => {
+  document.getElementById('view').scrollTop = document.getElementById('editor').scrollTop
+})
